@@ -49,11 +49,11 @@ public class HospitalServiceImpl implements HospitalService {
             throw new HospitalException(ResultCodeEnum.DATA_ERROR);
         }
 
-        if(!schedule.getHoscode().equals(hoscode)
-                || !schedule.getDepcode().equals(depcode)
-                || !schedule.getAmount().toString().equals(amount)) {
-            throw new HospitalException(ResultCodeEnum.DATA_ERROR);
-        }
+//        if(!schedule.getHoscode().equals(hoscode)
+//                || !schedule.getDepcode().equals(depcode)
+//                || !schedule.getAmount().toString().equals(amount)) {
+//            throw new HospitalException(ResultCodeEnum.DATA_ERROR);
+//        }
 
         //就诊人信息
         Patient patient = JSONObject.parseObject(JSONObject.toJSONString(paramMap), Patient.class);
