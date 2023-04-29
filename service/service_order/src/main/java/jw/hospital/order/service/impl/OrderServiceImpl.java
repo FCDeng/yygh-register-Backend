@@ -10,6 +10,7 @@ import jw.hospital.common.helper.HttpRequestHelper;
 import jw.hospital.common.result.ResultCodeEnum;
 import jw.hospital.enums.OrderStatusEnum;
 import jw.hospital.hospclient.HospitalFeignClient;
+import jw.hospital.model.hosp.Hospital;
 import jw.hospital.model.hosp.Schedule;
 import jw.hospital.model.order.OrderInfo;
 import jw.hospital.model.user.Patient;
@@ -170,6 +171,19 @@ public class OrderServiceImpl extends
         }
         return orderInfo.getId();
     }
+
+//    //订单添加医嘱
+//    @Override
+//    public Long saveOrder(String orderId, Map<String, Object> paramMap) {
+//        //把参数map集合转换为json字符串
+//        String mapString = JSONObject.toJSONString(paramMap);
+//        //再把json字符串转换为对象Hospital
+//        OrderInfo orderInfoParam = JSONObject.parseObject(mapString, OrderInfo);
+//        OrderInfo orderInfo = baseMapper.selectById(orderId);
+//        orderInfo.setRoutine();
+//
+//        return null;
+//    }
 
     //根据订单id查询订单详情
     @Override

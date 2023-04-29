@@ -17,6 +17,9 @@ public interface OrderService extends IService<OrderInfo> {
     //根据订单id查询订单详情
     OrderInfo getOrder(String orderId);
 
+    //根据订单id查询订单详情
+//    OrderInfo updateById(String orderId, Map<String, Object> paramMap);
+
     //订单列表（条件查询带分页）
     IPage<OrderInfo> selectPage(Page<OrderInfo> pageParam, OrderQueryVo orderQueryVo);
 

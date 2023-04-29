@@ -6,15 +6,16 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import jw.hospital.common.result.Result;
+import jw.hospital.common.utils.MD5;
 import jw.hospital.enums.OrderStatusEnum;
+import jw.hospital.model.hosp.HospitalSet;
 import jw.hospital.model.order.OrderInfo;
 import jw.hospital.order.service.OrderService;
 import jw.hospital.vo.order.OrderQueryVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Random;
 
 
 @Api(tags = "订单接口")
@@ -51,5 +52,17 @@ public class OrderController {
           @ApiParam(name = "orderId", value = "订单id", required = true)
           @PathVariable Long id) {
     return Result.ok(orderService.show(id));
+  }
+
+  //4 添加医嘱
+  @ApiOperation(value = "添加医嘱")
+  @PostMapping("saveDoctorOrder")
+  public Result saveDoctorOrder(@RequestBody OrderInfo orderInfo) {
+    boolean flag = orderService.updateById(orderInfo);
+    if(flag) {
+      return Result.ok();
+    } else {
+      return Result.fail();
+    }
   }
 }

@@ -107,5 +107,35 @@ public class OrderInfo extends BaseEntity {
 	@TableField("order_status")
 	private Integer orderStatus;
 
+
+	@ApiModelProperty(value = "常规护理")
+	@TableField("routine")
+	private String routine;
+
+	@ApiModelProperty(value = "护理级别")
+	@TableField("nursing_level")
+	private String nursingLevel;
+
+	@ApiModelProperty(value = "卧位")
+	@TableField("recumbent_position")
+	private String recumbentPosition;
+
+	@ApiModelProperty(value = "特殊处理")
+	@TableField("special_treatment")
+	private String specialTreatment;
+
+	@ApiModelProperty(value = "药物")
+	@TableField("drug")
+	private String drug;
+
+	@ApiModelProperty(value = "备注")
+	@TableField("remark")
+	private String remark;
+
+	@ApiModelProperty(value = "诊断结果")
+	@TableField("diagnosis")
+	private String diagnosis;
+
+
 }
 
