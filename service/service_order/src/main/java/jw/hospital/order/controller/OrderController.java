@@ -26,7 +26,7 @@ public class OrderController {
   @Autowired
   private OrderService orderService;
 
-  @ApiOperation(value = "获取分页列表")
+//  @ApiOperation(value = "获取分页列表")
   @GetMapping("{page}/{limit}")
   public Result index(
           @ApiParam(name = "page", value = "当前页码", required = true)

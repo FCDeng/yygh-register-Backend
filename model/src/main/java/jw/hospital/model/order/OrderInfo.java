@@ -128,6 +128,10 @@ public class OrderInfo extends BaseEntity {
 	@TableField("drug")
 	private String drug;
 
+	@ApiModelProperty(value = "饮食")
+	@TableField("diet")
+	private String diet;
+
 	@ApiModelProperty(value = "备注")
 	@TableField("remark")
 	private String remark;

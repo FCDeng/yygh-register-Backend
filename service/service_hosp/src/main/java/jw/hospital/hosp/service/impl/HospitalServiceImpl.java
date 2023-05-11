@@ -10,6 +10,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -71,11 +72,14 @@ public class HospitalServiceImpl implements HospitalService {
 
         //hospitalSetQueryVo转换Hospital对象
         Hospital hospital = new Hospital();
-        BeanUtils.copyProperties(hospitalQueryVo,hospital);
+//        BeanUtils.copyProperties(hospitalQueryVo,hospital);
+        if (!StringUtils.isEmpty(hospitalQueryVo.getHosname())) {
+            hospital.setHosname(hospitalQueryVo.getHosname());
+        }
         //创建对象
         Example<Hospital> example = Example.of(hospital,matcher);
         //调用方法实现查询
-        Page<Hospital> pages = hospitalRepository.findAll(example, pageable);
+        Page<Hospital> pages = hospitalRepository.findAll(pageable);
 
         //获取查询list集合，遍历进行医院等级。医院地址封装到Hospital实体类的map集合
         //Hospital需要通过setHospitalHosType()方法里面的openfeign执行远程调用service_cmm模块获取
